@@ -3,14 +3,14 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 let detail = new Schema({
-  name: {
+  first_name: {
     type: String
   },
-  age: {
-    type: Number
+  last_name: {
+    type: String
   },
 
-  breed: {
+  email: {
     type: String
   }
 });

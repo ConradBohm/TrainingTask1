@@ -2,17 +2,16 @@ const express = require('express')
 const mongoose = require('mongoose')
 const router = express.Router()
 const app = express()
-var uri = "mongodb://127.0.0.1:27017/kennel";
+app.use("/", router)
+userObject = {}
+
+var uri = "mongodb://127.0.0.1:27017/users";
 
 app.set('view engine', 'pug')
 
 
 app.get('/', function(req, res){
     res.render('index')
-})
-
-app.post('/', function (req, res){
-    res.send('Post request to homepage')
 })
 
 mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true });
@@ -23,8 +22,12 @@ connection.once("open", function() {
   console.log("MongoDB database connection established successfully");
 });
 
+router.route("/insertdata").post(function(req, res) {
+});
+
+
 app.listen(4000, function() {
-  console.log("Server is running on Port: 4000");
+  console.log("Server is running on port: 4000");
 });
 
 
