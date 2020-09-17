@@ -9,16 +9,26 @@ app.set('view engine', 'pug');
 app.set('views','./views/');
 
 
-app.get('/', function(req, res){
-    res.render('index')
-});
-
 mongoose.Promise = global.Promise;
 mongoose.connect(url);
 var userSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
     email: String
+});
+
+var User = mongoose.model("User", userSchema)
+
+app.get('/', function(req, res){
+    res.render('index')
+});
+
+app.post('/details', (req,res) => {
+    var Details = new User(req.body)
+    Details.save()
+        .then(item => {
+            res.send("User sent to database.")
+        })
 });
 
 var connection = mongoose.connection;
