@@ -1,20 +1,19 @@
-var express = require('express')
-var mongoose = require('mongoose')
-var router = express.Router()
-var app = express()
-app.use("/", router)
-userObject = {}
+var express = require('express');
+var app = express();
+var mongoose = require('mongoose');
+var router = express.Router();
+var url = "mongodb://127.0.0.1:27017/users";
 
-var uri = "mongodb://127.0.0.1:27017/users";
-
-app.set('view engine', 'pug')
+app.use("/", router);
+app.set('view engine', 'pug');
+app.set('views','./views/');
 
 
 app.get('/', function(req, res){
     res.render('index')
-})
+});
 
-mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.connect(url);
 
 var connection = mongoose.connection;
 
