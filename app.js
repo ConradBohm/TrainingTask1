@@ -13,7 +13,13 @@ app.get('/', function(req, res){
     res.render('index')
 });
 
+mongoose.Promise = global.Promise;
 mongoose.connect(url);
+var userSchema = new mongoose.Schema({
+    firstName: String,
+    lastName: String,
+    email: String
+});
 
 var connection = mongoose.connection;
 
