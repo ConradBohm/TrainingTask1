@@ -1,7 +1,7 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const router = express.Router()
-const app = express()
+var express = require('express')
+var mongoose = require('mongoose')
+var router = express.Router()
+var app = express()
 app.use("/", router)
 userObject = {}
 
@@ -16,7 +16,7 @@ app.get('/', function(req, res){
 
 mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true });
 
-const connection = mongoose.connection;
+var connection = mongoose.connection;
 
 connection.once("open", function() {
   console.log("MongoDB database connection established successfully");
