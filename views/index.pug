@@ -1,0 +1,17 @@
+html
+    head
+        title Database Form
+        style
+            body text_align: center
+            
+
+    body
+        h1 Name Database
+        form(method='post')
+            label(for='first_name') Enter First name:   
+            input#first_name(type='text' name='name_field' placeholder='first name')
+            label(for='last_name') Enter Last name:
+            input#last_name(type='text' name='name_field' placeholder='last name')
+            label(for='email') Enter email
+            input#email(type='text' name='email' placeholder='email')
+            input(type='submit' value='OK')
