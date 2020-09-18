@@ -26,10 +26,6 @@ app.get('/', function(req, res){
     res.render('index')
 });
 
-app.get('/find', function(req,res){
-    res.render('find')
-})
-
 app.post('/database', (req,res) => {
     var Details = new User(req.body)
     Details.save()
@@ -38,20 +34,18 @@ app.post('/database', (req,res) => {
         })
 });
 
-//var userJSON = 
+app.get('/find', function(req,res){
+  res.render('find')
+});
 
-//router.route("/insertdata").post(function(req,res) {
-//    users.insert()
-//})
-
-//var connection = mongoose.connection;
-
-//connection.once("open", function() {
-//  console.log("MongoDB database connection established successfully");
-//});
-
-//router.route("/insertdata").post(function(req, res) {
-//});
+app.post('find',function(req,res){
+  var searchData = req.body.searchFirstName
+  User.find({firstName: searchData}, function(err,users) {
+    if (err) throw err
+    console.log(searchData)
+    res.send(User);
+  })
+})
 
 
 app.listen(4000, function() {
