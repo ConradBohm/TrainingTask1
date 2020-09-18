@@ -26,6 +26,10 @@ app.get('/', function(req, res){
     res.render('index')
 });
 
+app.get('/find', function(req,res){
+    res.render('find')
+})
+
 app.post('/database', (req,res) => {
     var Details = new User(req.body)
     Details.save()

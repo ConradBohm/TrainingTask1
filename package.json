@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ConradBohm/TrainingTask1#readme",
   "dependencies": {
-    "mongoose": "^5.10.5"
+    "mongoose": "^5.10.5",
+    "nodemon": "^2.0.4"
   }
 }

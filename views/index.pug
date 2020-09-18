@@ -8,10 +8,12 @@ html
     body
         h1 Name Database
         form(method='post' action='/database')
-            label(for='first_name') Enter First name:   
+            label(for='firstName') Enter First name:   
             input#firstName(type='text' name='firstName' placeholder='first name')
-            label(for='last_name') Enter Last name:
+            br
+            label(for='lastNme') Enter Last name:
             input#lastName(type='text' name='lastName' placeholder='last name')
+            br
             label(for='email') Enter email
             input#email(type='text' name='email' placeholder='email')
             input(type='submit' value='OK')
