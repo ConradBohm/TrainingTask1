@@ -38,12 +38,12 @@ app.get('/find', function(req,res){
   res.render('find')
 });
 
-app.post('find',function(req,res){
+app.post('/find',function(req,res){
   var searchData = req.body.searchFirstName
   User.find({firstName: searchData}, function(err,users) {
     if (err) throw err
     console.log(searchData)
-    res.send(User);
+    res.render('search', {users:users});
   })
 })
 
